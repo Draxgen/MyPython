@@ -1,6 +1,9 @@
 import csv
 import pathlib
 import os
+import matplotlib.pyplot as plt 
+import numpy as np
+from scipy import signal
 
 # get paths
 curr_dir = pathlib.Path(__file__).parent.absolute()
@@ -15,11 +18,31 @@ reader = csv.reader(file, delimiter='\t')
 header = next(reader)
 
 #data = [row for row in reader]
-data = []
+deg = []
+torque = []
 for row in reader:
-    deg = float(row[0].replace(',','.'))
-    torque = float(row[1].replace(',','.'))
-    data.append([deg, torque])
+    deg.append(float(row[0].replace(',','.')))
+    torque.append(float(row[1].replace(',','.')))
 
-print(data[0])
+print(deg[0])
+print(torque[0])
+
+plt.plot(deg, torque, label='raw')
+
+#lowpass filter
+freq_samp = 6000
+freq_cutoff = 10
+freq_norm = freq_cutoff / (freq_samp / 2)
+b, a = signal.butter(5, freq_norm, 'low')
+filtered_sig = signal.filtfilt(b, a, torque)
+
+plt.plot(deg, filtered_sig, label='filtered')
+
+
+plt.xlabel('Degrees [deg]')
+plt.ylabel('Torque [mNm]')
+plt.title('CoggingTorque')
+
+plt.show()
+
 
