@@ -21,18 +21,16 @@ header.append(next(reader))
 
 #data = [row for row in reader]
 torque = []
-temp = next(reader)#[2:]
+
+# get rid of 'Y:' in third row
+temp = next(reader)
 print(temp[0][2:])
-torque.append(temp[0][2:])
+torque.append(float(temp[0][2:].replace(',','.')))
+
 for row in reader:
     torque.append(float(row[0].replace(',','.')))
 
-
-x = [i for i in range(0, len(torque))]
-
-#print(torque[0])
-
-plt.plot(x, torque, label='filtered')
+plt.plot(torque, label='filtered')
 
 #lowpass filter
 freq_samp = 6000
