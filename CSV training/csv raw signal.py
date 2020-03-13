@@ -24,7 +24,6 @@ torque = []
 
 # get rid of 'Y:' in third row
 temp = next(reader)
-print(temp[0][2:])
 torque.append(float(temp[0][2:].replace(',','.')))
 
 for row in reader:
