@@ -15,11 +15,15 @@ df = pd.read_csv('pokemon_data.csv')
 #print(df.sort_values(['Type 1', 'HP'], ascending=[1,0]))
 
 ##Change Data
-df['Total'] = df.iloc[:, 4:10].sum(axis=1)
+#df['Total'] = df.iloc[:, 4:10].sum(axis=1)
+
+df['Total'] = df.iloc[:, df.columns.get_loc('HP') : df.columns.get_loc('Generation')].sum(axis=1)
 
 cols = list(df.columns.values)
 df = df[cols[0:4] + [cols[-1]] + cols[4:12]]
 
-print(df.head())
+#df.to_csv('modified.txt', index=False, sep='\t')
 
-df.to_csv('modified.csv')
+new_df = df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP']>70)]
+
+new_df = new_df.reset_index()
