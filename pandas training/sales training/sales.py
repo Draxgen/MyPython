@@ -1,6 +1,7 @@
 import os
 import glob
 import pandas as pd
+import matplotlib.pyplot as plt
 
 #%% import all data and put it into one DataFrame
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -30,7 +31,14 @@ df['Month'] = df['Order Date'].str[0:2].astype('int8')
 df['Total Price'] = df['Price Each'].astype('double') * df['Quantity Ordered'].astype('int32')
 
 #%% which month was the best?
-print("Best month: " + str(df.groupby('Month').sum().idxmax()[0]))
+results = df.groupby('Month').sum()
+months = range(1,13)
+
+plt.bar(months, results['Total Price'])
+plt.xticks(months)
+plt.ylabel('Sales [$]')
+plt.xlabel('Month number')
+plt.show()
 
 #%% which city sold the most products?
 new = df['Purchase Address'].str.split(', ')
