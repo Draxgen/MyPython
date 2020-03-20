@@ -31,15 +31,20 @@ df['Month'] = df['Order Date'].str[0:2].astype('int8')
 df['Total Price'] = df['Price Each'].astype('double') * df['Quantity Ordered'].astype('int32')
 
 #%% which month was the best?
-results = df.groupby('Month').sum()
+month_sales = df.groupby('Month')['Total Price'].sum()
 months = range(1,13)
 
-plt.bar(months, results['Total Price'])
+plt.bar(months, month_sales)
 plt.xticks(months)
 plt.ylabel('Sales [$]')
 plt.xlabel('Month number')
 plt.show()
 
 #%% which city sold the most products?
-new = df['Purchase Address'].str.split(', ')
-#print("City, where most products were sold: " + str(df.groupby('')))
+df['City'] = df['Purchase Address'].apply(lambda x: x.split(',')[1].strip())
+#print("City, where most products were sold: " + str(df.groupby('City')))
+cities = df.groupby('City', as_index=False)['Total Price'].sum()
+
+plt.bar(cities['City'], cities['Total Price'])
+plt.figure(figsize=(20, 3))
+plt.show()
