@@ -28,6 +28,8 @@ df = df[cols[0:4] + [cols[-1]] + cols[4:12]]
 
 new_df = df.loc[df['Type 1'] == 'Grass']
 
-temp = df['Type 1']
+new_df = df.iloc[0:5]
+
+new_df = df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP']>70)]
 
 #new_df = new_df.reset_index()
