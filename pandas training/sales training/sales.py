@@ -41,10 +41,12 @@ plt.xlabel('Month number')
 plt.show()
 
 #%% which city sold the most products?
-df['City'] = df['Purchase Address'].apply(lambda x: x.split(',')[1].strip())
+df['City'] = df['Purchase Address'].apply(lambda x: x.split(',')[1].strip() + ' ' + x.split(',')[2].strip().split(' ')[0].strip())
 #print("City, where most products were sold: " + str(df.groupby('City')))
 cities = df.groupby('City', as_index=False)['Total Price'].sum()
 
 plt.bar(cities['City'], cities['Total Price'])
-plt.figure(figsize=(20, 3))
+plt.xticks(cities['City'], rotation='vertical')
+plt.ylabel('Sales [$]')
+plt.xlabel('City name')
 plt.show()
