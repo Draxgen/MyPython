@@ -1,0 +1,188 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/JATU~1.AVE/AppData/Local/Temp/kite_tutorial.py",
+		"/C/Projects/_Prywatne/MyPython/django training/src/trydjango/settings.py",
+		"/C/Projects/_Prywatne/MyPython/django training/src/products/models.py",
+		"/C/Projects/Lear/Cordset/PL_01024_LEAR_OP-26908_Leak_test_for_CCID_final_after_EOL/05-Software/Dev/TMOS/Settings/HW_config.xml",
+		"/D/autorun.inf",
+		"/C/Users/jatu.AVERNA/Desktop/D.txt",
+		"/C/Users/jatu.AVERNA/Desktop/G.txt",
+		"/C/Users/jatu.AVERNA/Desktop/Testy stacji/Pomiar samego waêka/3/CoggingTorque_200213_083615.txt",
+		"/C/Users/jatu.AVERNA/Desktop/Testy stacji/Pomiar samego waêka/2/CoggingTorque_200213_083441.txt",
+		"/C/Users/jatu.AVERNA/Desktop/Testy stacji/Pomiar samego waêka/1/CoggingTorque_200213_081907.txt",
+		"/C/Projects/TMOS/drivery/IBK2 Valve Block.lvproj",
+		"/C/Projects/Nidec/PL_01085_NIDEC_OP-27083_Tester_EPS140_CT/05-Software/Runtimes/CoggingTorque/Settings/AppSettings.ini",
+		"/L/HeatRampTest/Settings/HW_config.xml",
+		"/L/HeatRampTest/Settings/HeatingRamp_config.xml",
+		"/L/TestVis/TestVis.xml",
+		"/C/Projects/PL_01041_LEAR_OP-26322_Tester_JLR_EXPM1_IM_HRM/05-Software/Dev/TMOS/Settings/HW_config.xml",
+		"/C/Users/jatu.AVERNA/Desktop/IM_EOL.APPROJX",
+		"/C/Users/jatu.AVERNA/Desktop/record.py",
+		"/C/Users/jatu.AVERNA/Documents/test2.py",
+		"/C/Users/jatu.AVERNA/Documents/test3.py",
+		"/C/Users/jatu.AVERNA/Documents/test4.py",
+		"/C/Users/jatu.AVERNA/Documents/test.py",
+		"/C/Projects/PL_01041_LEAR_OP-26322_Tester_JLR_EXPM1_IM_HRM/05-Software/Dev/TMOS/Resources/SharedVariables.ini",
+		"/C/Projects/PL_01041_LEAR_OP-26322_Tester_JLR_EXPM1_IM_HRM/05-Software/Dev/TMOS/Procedures/IM/settings/limits.xml"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "trydjango.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 178.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
