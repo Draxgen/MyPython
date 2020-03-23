@@ -1,10 +1,24 @@
 import os
+import watchdog
+import watchdog.events
+import watchdog.observers
 
-os.chdir('C:\\')
+# set the user's download dir as current working dir
+home_dir = os.path.expanduser("~")
+download_dir = os.path.join(home_dir, 'Downloads')
+os.chdir(download_dir)
 print(os.getcwd())
 
-print(os.getenv('HOME'))
+#setup and start the observer
+event_hndlr = watchdog.events.LoggingEventHandler()
+observer = watchdog.observers.Observer()
+observer.schedule(event_hndlr, download_dir, recursive=False)
+observer.start()
 
-#os.chdir(os.getenv('HOME'))
-
-print(os.getcwd())
+#listen for new file
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
