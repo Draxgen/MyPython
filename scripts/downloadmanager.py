@@ -16,9 +16,4 @@ observer.schedule(event_hndlr, download_dir, recursive=False)
 observer.start()
 
 #listen for new file
-try:
-    while True:
-        time.sleep(1)
-except KeyboardInterrupt:
-    observer.stop()
-observer.join()
+
