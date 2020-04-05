@@ -155,7 +155,6 @@ class MakeOperation(State):
 class Security(State):
 
     def __init__(self):
-        super.__init__(self)
         print('Checking card ...')
         sleep(3)
         print("Card is correct")
