@@ -78,14 +78,17 @@ class ChooseOperation(State):
     def handle1(self) -> None:
         print('Withdrawal has been chosen')
         print('haha money printer go brrrr')
+        self.printmenu()
 
     def handle2(self) -> None:
         print('Deposit has been chosen')
         print('Give me yo money, bitch!')
+        self.printmenu()
 
     def handle3(self) -> None:
         print('Change PIN has been chosen')
         print('There. I\'vechanged your PIN. Good luck guessing it ;p')
+        self.printmenu()
 
     def handle4(self) -> None:
         print('Bye bye')
@@ -94,11 +97,11 @@ class ChooseOperation(State):
 class Cleanup(State):
     def __init__(self):
         print('Removing card... please take your card...')
-        sleep(2)
-        self.context.transition_to(Idle)
+        print('Press 0 to continue')
+        
 
     def handle0(self) -> None:
-        pass
+        self.context.transition_to(Idle)
 
     def handle1(self) -> None:
         pass
@@ -158,14 +161,15 @@ class Security(State):
         print('Checking card ...')
         sleep(3)
         print("Card is correct")
+        print('Press 0 to continue')
         # todo: the transition_to function does not work in init. Look up and understand property setters. Understand the context variable
-        self.context.transition_to(ChooseOperation())
+        
     
     def handle1(self) -> None:
         pass
 
     def handle0(self) -> None:
-        pass
+        self.context.transition_to(ChooseOperation())
 
     def handle2(self) -> None:
         pass
