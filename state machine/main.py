@@ -6,8 +6,8 @@ from msvcrt import getch
 class ATM(ABC):
     _state = None
 
-    def __init__(self, state: State) -> None:
-        self.transition_to(state)
+    def __init__(self) -> None:
+        self.transition_to(Idle())
     
     def transition_to(self, state:State):
         # change state
@@ -179,7 +179,8 @@ class Security(State):
         pass
 
 if __name__=='__main__':
-    context = ATM(Idle())
+    #context = ATM(Idle())
+    context = ATM()
 
     while True:
         
@@ -189,7 +190,8 @@ if __name__=='__main__':
             break
         
         try:
-            exec(f'context.request{input}()')
+            if int(input) <= 4:
+                exec(f'context.request{input}()')
             #print(input)
             #print(type(input))
         except:
