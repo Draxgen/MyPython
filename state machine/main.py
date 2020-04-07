@@ -101,7 +101,7 @@ class Cleanup(State):
         
 
     def handle0(self) -> None:
-        self.context.transition_to(Idle)
+        self.context.transition_to(Idle())
 
     def handle1(self) -> None:
         pass
@@ -161,9 +161,7 @@ class Security(State):
         print('Checking card ...')
         sleep(3)
         print("Card is correct")
-        print('Press 0 to continue')
-        # todo: the transition_to function does not work in init. Look up and understand property setters. Understand the context variable
-        
+        print('Press 0 to continue')        
     
     def handle1(self) -> None:
         pass
