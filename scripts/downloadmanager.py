@@ -28,6 +28,7 @@ class FileOrganizerEventHandler(FileSystemEventHandler):
         breakLoop = False
         file_name = os.path.basename(event.src_path)
         folder_path = os.path.dirname(event.src_path)
+        file_name_no_ext = os.path.splitext(file_name)[0]
         file_ext = os.path.splitext(file_name)[1]
         for key in self._folderAndExt:
             for x in self._folderAndExt[key]:
@@ -37,11 +38,19 @@ class FileOrganizerEventHandler(FileSystemEventHandler):
                         os.makedirs(os.path.join(folder_path, key))
                     # move the file to correct folder
                     timeout = time.time() + 10 # wait 10s max for access to file 
+                    target_path = os.path.join(folder_path, key, file_name)
                     while True:
                         try:
-                            os.rename(event.src_path, os.path.join(folder_path, key, file_name))
+                            # if file with that name exists add ' - x' at the end
+                            for x in range(10):
+                                if os.path.exists(target_path):
+                                    target_path = os.path.join(folder_path, key, (file_name_no_ext + ' - ' + str(x+2) + file_ext))
+                                    continue
+                                os.rename(event.src_path, target_path)
+                                break
                             break
-                        except:
+                        except Exception as ex:
+                            print(ex)
                             time.sleep(1)
                         if time.time() > timeout:
                             break
