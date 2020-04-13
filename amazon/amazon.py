@@ -46,8 +46,8 @@ def fib_recurs_mem(n, memo):
     return result
 
 if __name__ == '__main__':
-    size = 1000
-    fibArr = [1,0,1]
+    size = 50
+    fibArr = [1,1,1]
 
     if fibArr[0] == 1:
         start = time.time()
