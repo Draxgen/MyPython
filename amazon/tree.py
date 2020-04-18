@@ -1,7 +1,7 @@
 '''
 Binary Search Tree
 '''
-
+import binarytree
 import random
 
 class Node():
@@ -58,8 +58,7 @@ class SearchBinaryTree():
         return height
 
     def _getHeight(self, node):
-        leftHeight = 0
-        rightHeight = 0
+
         if node.left_child is not None:
             leftHeight = self._getHeight(node.left_child) + 1
         else:
@@ -67,7 +66,7 @@ class SearchBinaryTree():
         if node.right_child is not None:
             rightHeight = self._getHeight(node.right_child) + 1
         else:
-            leftHeight = 1 # if node has no children height of the node is 1 to count its own height
+            rightHeight = 1 # if node has no children height of the node is 1 to count its own height
         return max(leftHeight, rightHeight)
 
     def getNumberOfNodes(self):
@@ -102,58 +101,47 @@ class SearchBinaryTree():
         elif node.value < value:
             return self._findNode(value, node.right_child)
 
-    def deleteNode(self,value):
-        toDelNode = self.findNode(value)
-        if toDelNode is not None:
-            self._deleteNode(toDelNode)
-        else:
-            print('Node to be deleted does not exist')
-
-    def _deleteNode(self,node):
-        leftChild, rightChild = self._getChildren(node)
-        #case 1 - node has no children
-        if leftChild is None and rightChild is None:
-
-        #case 2 - node has only left child
-        #case 3 - node has only right child
-        #case 4 - node has both children
-
-    def _getChildren(self,node)
+    def _getChildren(self,node):
         return node.left_child, node.right_child
 
-    def _getPredecessorAndItsParent(self,node):
-        if node.left_child
-
-    def getParent(self,node):
-        if node is self.root:
-            return None
-        elif self.root is not None:
-            return self._getParent(node)
+    def getPredecessor(self, node):
+        if node.left_child is not None:
+            return self._getPredecessor(node.left_child)
         else:
             return None
     
-    def _getParent(self, node):
-        if node.left_child == node:
+    def _getPredecessor(self,node):
+        if node.right_child is not None:
+            return self._getPredecessor(node.right_child)
+        else:
             return node
-        if node.right_child == node:
-            return node
-        left = self._getParent(node.left_child)
-        right = self._getParent(node.right_child)
-        if left is None and right is None:
-            return None
-        if left is not None and right is None:
-            return left
-        if left is None and right is not None:
-            return right
+
+    def levelOrder(self):
+        nodes = []
+        if self.root is not None:
+            nodes.append(self.root)
+            self._levelOrder(1,nodes)
+            return nodes
+        else
+            return nodes
+
+    
+
+    def _levelOrder(self, level, arr):
+        if 
+
+    def _findNodesOnLevel(self, level)
 
 
 if __name__ == "__main__":
     tree = SearchBinaryTree()
     tree.fillTree()
 
-    tree.printTree()    
+    #tree.printTree()    
 
-    print(tree.getHeight())
-    print(tree.getNumberOfNodes())
+    print('Tree height =',tree.getHeight())
+    print('Num of nodes =',tree.getNumberOfNodes())
+
+
 
     
