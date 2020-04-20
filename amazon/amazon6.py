@@ -145,6 +145,40 @@ class LinkedList():
             ids.append(id(cur_node))
             cur_node = cur_node.next
 
+    def copy(self):
+        newList = LinkedList()
+        if self.root is None:
+            print('ERROR: "Copy" list is empty')
+            return None
+        elif self.root.next is None:
+            return newList
+        else:
+            curNode = self.root.next
+            while True:
+                if curNode is None:
+                    return newList
+                newList.append(curNode.data)
+                curNode = curNode.next
+
+    def merge(self, list2):
+        # case 1 - both lists are empty
+        if self.root is None and list2.root is None:
+            return LinkedList()
+        # case 2 - list1 is empty
+        elif self.root is None and list2.root is not None:
+            return list2.copy()
+        # case 3 - list2 is empty
+        elif self.root is not None and list2.root is None:
+            return self.copy()
+        # case 4 - lists are not empty
+        else:
+            elems = self.getElements()
+            elems = elems + list2.getElements()
+            elems.sort()
+            mergedList = LinkedList()
+            for x in elems:
+                mergedList.append(x)
+            return mergedList
 
 myList = LinkedList()
 
@@ -154,8 +188,17 @@ myList.append(12)
 myList.append(13)
 myList.append(14)
 
+myList2 = myList.copy()
+merged = myList.merge(myList2)
+
 myList.display()
-myList.displayReverse()
+myList2.display()
+merged.display()
+
+# print(id(myList))
+# print(id(myList2))
+# print(id(merged))
+
 # print('Length = ' + str(myList.length()))
 
 # myList.insert(2,4)
