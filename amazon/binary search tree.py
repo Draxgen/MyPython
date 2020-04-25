@@ -49,6 +49,7 @@ class SearchBinaryTree():
     def fillTree(self):
         for _ in range(100):
             self.insert(random.randint(0,1000))
+            #self.insert(_)
 
     def getHeight(self):
         if self.root is not None:
@@ -116,21 +117,23 @@ class SearchBinaryTree():
         else:
             return node
 
-    def levelOrder(self):
+    def levelOrderTraversal(self):
+        elems = []
         nodes = []
+        nodesTemp = []
         if self.root is not None:
             nodes.append(self.root)
-            self._levelOrder(1,nodes)
-            return nodes
-        else
-            return nodes
-
-    
-
-    def _levelOrder(self, level, arr):
-        if 
-
-    def _findNodesOnLevel(self, level)
+            # while loop for printing levels of nodes
+            while nodes:
+                for n in nodes:
+                    elems.append(n.value)
+                    if n.left_child: nodesTemp.append(n.left_child)
+                    if n.right_child: nodesTemp.append(n.right_child)
+                nodes = nodesTemp
+                nodesTemp = []
+            return nodes, elems
+        else:
+            return nodes, elems
 
 
 if __name__ == "__main__":
@@ -141,6 +144,10 @@ if __name__ == "__main__":
 
     print('Tree height =',tree.getHeight())
     print('Num of nodes =',tree.getNumberOfNodes())
+
+    nodes, elems = tree.levelOrderTraversal()
+
+    print('Level Traersal: ', elems)
 
 
 
